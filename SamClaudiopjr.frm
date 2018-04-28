@@ -15,11 +15,23 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+
 Private Sub Form_Load()
    Dim dblValor As Double
+   Dim strValor As String
+   Dim objUtil As New Util
+      
+   strValor = InputBox("Insira o valor para conversão", "Conversão de valor por extenso")
    
-   dblValor = InputBox("Insira o valor para conversão", "Conversão de valor por extenso")
-   MsgBox "Você digitou o valor " & dblValor
+   If strValor = "" Then
+      MsgBox "Digite um valor!"
+   Else
+      
+      objUtil.ValorExtenso (Format(strValor, "#,###,00"))
    
+   End If
+         
+   Unload Me
+     
 End Sub
 
